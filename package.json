@@ -1,0 +1,46 @@
+{
+	"name": "node-typescript-boilerplate",
+	"description": "Minimalistic boilerplate for Node.js projects in TypeScript",
+	"version": "0.0.0",
+	"author": {
+		"name": "Слава Соколов",
+		"username": "equilpres",
+		"url": "https://github.com/equilpres"
+	},
+	"type": "module",
+	"main": "./build/loader/mod.js",
+	"imports": {
+		"#*": {
+			"development": "./src/*",
+			"default": "./build/*"
+		}
+	},
+	"exports": "./build/loader/mod.js",
+	"engines": {
+		"node": "^18.18"
+	},
+	"license": "MIT",
+	"scripts": {
+		"dev": "node --no-warnings=ExperimentalWarning --abort-on-uncaught-exception --watch --loader ts-node/esm --conditions=development ./src/loader/mod.ts",
+		"build": "pnpm lint && tsc",
+		"docker::build": "docker build --no-cache --progress=plain --tag node-typescript-boilerplate .",
+		"start": "cross-env NODE_ENV=production node .",
+		"lint": "prettier --check --cache . && eslint .",
+		"fmt": "prettier --write --cache .",
+		"bump": "pnpm update --latest"
+	},
+	"dependencies": {
+		"@next/env": "^14.1.4",
+		"cross-env": "^7.0.3"
+	},
+	"devDependencies": {
+		"@types/node": "^20.12.2",
+		"@typescript-eslint/eslint-plugin": "^7.5.0",
+		"@typescript-eslint/parser": "^7.5.0",
+		"eslint": "^8.57.0",
+		"eslint-config-prettier": "^9.1.0",
+		"prettier": "^3.2.5",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.4.3"
+	}
+}
