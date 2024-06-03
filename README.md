@@ -1,6 +1,6 @@
 ### Node TypeScript Boilerplate
 
-Minimalistic boilerplate for Node.js projects in TypeScript.
+Boilerplate for Node.js projects in TypeScript
 
 #### Prerequisites
 
@@ -74,4 +74,4 @@ Minimalistic boilerplate for Node.js projects in TypeScript.
 
 #### License
 
-This project is under the MIT License. See [LICENSE](LICENSE) for details.
+[MIT](LICENSE)
