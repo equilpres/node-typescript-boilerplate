@@ -42,10 +42,10 @@ Boilerplate for Node.js projects in TypeScript
      pnpm build
      ```
 
-- `docker::build`: Build Docker image.
+- `docker:build`: Build Docker image.
 
      ```bash
-     pnpm docker::build
+     pnpm docker:build
      ```
 
 - `start`: Start prod server.

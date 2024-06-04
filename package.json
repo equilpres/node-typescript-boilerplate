@@ -23,7 +23,7 @@
 	"scripts": {
 		"dev": "node --no-warnings=ExperimentalWarning --abort-on-uncaught-exception --watch --loader ts-node/esm --conditions=development ./src/loader/mod.ts",
 		"build": "pnpm lint && tsc",
-		"docker::build": "docker build --no-cache --progress=plain --tag node-typescript-boilerplate .",
+		"docker:build": "docker build --no-cache --progress=plain --tag node-typescript-boilerplate .",
 		"start": "cross-env NODE_ENV=production node .",
 		"lint": "prettier --check --cache . && eslint .",
 		"fmt": "prettier --write --cache .",

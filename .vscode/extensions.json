@@ -1,13 +1,22 @@
 {
 	"recommendations": [
-		"streetsidesoftware.code-spell-checker",
-		"EditorConfig.EditorConfig",
-		"Nixon.env-cmd-file-syntax",
-		"usernamehw.errorlens",
+		// Code quality and linting
 		"dbaeumer.vscode-eslint",
-		"github.vscode-github-actions",
 		"wix.vscode-import-cost",
 		"esbenp.prettier-vscode",
-		"streetsidesoftware.code-spell-checker-russian"
+		"usernamehw.errorlens",
+
+		"streetsidesoftware.code-spell-checker",
+		"streetsidesoftware.code-spell-checker-russian",
+
+		// Configuration file
+		"EditorConfig.EditorConfig",
+		"Nixon.env-cmd-file-syntax",
+
+		// GitHub and CI/CD
+		"github.vscode-github-actions",
+
+		// AI assistant
+		"Supermaven.supermaven"
 	]
 }
