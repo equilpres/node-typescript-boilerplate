@@ -8,13 +8,13 @@ FROM base AS deps
 WORKDIR /app
 COPY package.json ./
 COPY pnpm-lock.yaml ./
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+RUN pnpm install --frozen-lockfile
 
 FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . ./
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm build
+RUN pnpm build
 
 FROM base AS runner
 WORKDIR /app
@@ -27,4 +27,4 @@ COPY --from=builder /app/.env ./
 COPY --from=builder /app/.env.production ./
 COPY --from=builder /app/package.json ./
 USER nodets
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm start
+RUN pnpm start
