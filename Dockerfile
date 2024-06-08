@@ -27,4 +27,4 @@ COPY --from=builder /app/.env ./
 COPY --from=builder /app/.env.production ./
 COPY --from=builder /app/package.json ./
 USER nodets
-RUN pnpm start
+CMD pnpm start
