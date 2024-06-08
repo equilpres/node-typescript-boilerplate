@@ -1,20 +1,23 @@
-FROM node:18.18-alpine AS deps
+FROM node:18.18-alpine AS base
 WORKDIR /app
-RUN npm install --global pnpm@8.15.7
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
+
+FROM base AS deps
+WORKDIR /app
 COPY package.json ./
 COPY pnpm-lock.yaml ./
-RUN pnpm install --frozen-lockfile
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 
-FROM node:18.18-alpine AS builder
+FROM base AS builder
 WORKDIR /app
-RUN npm install --global pnpm@8.15.7
 COPY --from=deps /app/node_modules ./node_modules
 COPY . ./
-RUN pnpm build
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm build
 
-FROM node:18.18-alpine AS runner
+FROM base AS runner
 WORKDIR /app
-RUN npm install --global pnpm@8.15.7
 ENV NODE_ENV production
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nodets
@@ -24,4 +27,4 @@ COPY --from=builder /app/.env ./
 COPY --from=builder /app/.env.production ./
 COPY --from=builder /app/package.json ./
 USER nodets
-CMD pnpm start
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm start
