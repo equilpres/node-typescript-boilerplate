@@ -41,7 +41,7 @@ devDependencies:
     specifier: ^5.5.2
     version: 5.5.2
   typescript-eslint:
-    specifier: ^8.0.0-alpha.30
+    specifier: 8.0.0-alpha.30
     version: 8.0.0-alpha.30(eslint@9.5.0)(typescript@5.5.2)
 
 packages:
