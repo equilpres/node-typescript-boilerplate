@@ -22,7 +22,7 @@
 	"packageManager": "pnpm@9.4.0",
 	"license": "MIT",
 	"scripts": {
-		"dev": "node --no-warnings=ExperimentalWarning --abort-on-uncaught-exception --watch --loader ts-node/esm --conditions=development ./src/loader/mod.ts",
+		"dev": "node --no-warnings=DeprecationWarning --import=./register.js --watch --conditions=development ./src/loader/mod.ts",
 		"build": "pnpm lint && tsc",
 		"docker:build": "docker build --no-cache --progress=plain --tag node-typescript-boilerplate .",
 		"start": "cross-env NODE_ENV=production node .",
