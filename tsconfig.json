@@ -35,5 +35,5 @@
 		"exactOptionalPropertyTypes": true
 	},
 	"include": ["./**/*.ts", "./typings.d.ts"],
-	"exclude": ["build"]
+	"exclude": ["./build"]
 }
