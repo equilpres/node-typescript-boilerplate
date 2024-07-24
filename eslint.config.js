@@ -13,6 +13,9 @@ export default tseslint.config(
 		languageOptions: {
 			globals: globals.node,
 		},
+	},
+	{
+		files: ['**/*.ts'],
 		rules: {
 			'@typescript-eslint/explicit-function-return-type': 'error',
 		},
