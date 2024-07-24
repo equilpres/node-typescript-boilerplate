@@ -1,3 +1,5 @@
+// @ts-check
+
 import { register } from 'node:module';
 import url from 'node:url';
 

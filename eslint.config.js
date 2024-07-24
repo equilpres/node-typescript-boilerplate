@@ -13,6 +13,9 @@ export default tseslint.config(
 		languageOptions: {
 			globals: globals.node,
 		},
+		rules: {
+			'@typescript-eslint/explicit-function-return-type': 'error',
+		},
 	},
 	{
 		ignores: ['build'],
